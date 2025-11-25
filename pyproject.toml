@@ -1,0 +1,60 @@
+[project]
+name = "visca-over-ip"
+version = "0.6.0"
+description = "A driver package for the VISCA over IP protocol used by PTZ cameras. Supports both UDP (standard) and TCP (raw VISCA) connections."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Yook74" },
+    { name = "misterhay", email = "misterhay@gmail.com" },
+    { name = "Rusty", email = "rsalavatov@epiphan.com" },
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+    "Topic :: System :: Hardware",
+]
+keywords = ["visca", "ptz", "camera", "sony", "pan", "tilt", "zoom"]
+
+[project.urls]
+Homepage = "https://github.com/fortunto2/VISCA-IP-Controller"
+Documentation = "https://visca-over-ip.readthedocs.io"
+Repository = "https://github.com/fortunto2/VISCA-IP-Controller"
+Issues = "https://github.com/fortunto2/VISCA-IP-Controller/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["visca_over_ip"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
